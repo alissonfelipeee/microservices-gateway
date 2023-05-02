@@ -1,5 +1,5 @@
 import { User } from "../../models/User";
 
 export interface IGetUserByEmailRepository {
-  getUserByEmail(email: string): Promise<User>;
+  getUserByEmail(email: string): Promise<User | null>;
 }
