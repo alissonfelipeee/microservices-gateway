@@ -9,5 +9,5 @@ export interface AuthUserParams {
 }
 
 export interface IAuthUserRepository {
-  auth(params: AuthUserParams): Promise<AuthUserResponse>;
+  auth(params: AuthUserParams): Promise<AuthUserResponse | null>;
 }

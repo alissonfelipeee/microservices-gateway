@@ -1,6 +1,6 @@
-import { IAuthUserRepository } from "../../services/auth-user/protocols";
 import { HttpRequest, HttpResponse, IController } from "../protocols";
 import { badRequest, ok, serverError, unauthorized } from "../utils";
+import { IAuthUserRepository } from "./protocols";
 import { AuthUserParams, AuthUserResponse } from "./protocols";
 
 export class AuthUserController implements IController {
