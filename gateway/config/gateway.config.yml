@@ -1,0 +1,41 @@
+http:
+  port: 3000
+admin:
+  port: 9876
+  host: localhost
+apiEndpoints:
+  users:
+    host: localhost
+    paths: ["/users", "/users/*"]
+  auth:
+    host: localhost
+    paths: ["/auth", "/auth/*"]
+serviceEndpoints:
+  users:
+    url: "http://localhost:3001"
+  auth:
+    url: "http://localhost:3002"
+policies:
+  - basic-auth
+  - cors
+  - expression
+  - key-auth
+  - log
+  - oauth2
+  - proxy
+  - rate-limit
+pipelines:
+  usersPipeline:
+    apiEndpoints:
+      - users
+    policies:
+      - proxy:
+          - action:
+              serviceEndpoint: users
+  authPipile:
+    apiEndpoints:
+      - auth
+    policies:
+      - proxy:
+          - action:
+              serviceEndpoint: auth
